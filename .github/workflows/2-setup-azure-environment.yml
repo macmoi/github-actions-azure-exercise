@@ -13,6 +13,7 @@ on:
     paths:
       - .github/workflows/deploy-staging.yml
 
+
 permissions:
   # Need `contents: read` to checkout the repository
   # Need `contents: write` to update the step metadata
@@ -77,11 +78,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Pull main
-      - name: Pull main
-        run: ./.github/script/initialize-repository.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Pull main - COMMENTED BECAUSE BUG ON TEMPLATE
+      #- name: Pull main
+      #  run: ./.github/script/initialize-repository.sh
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Update README to close <details id=2> and open <details id=3>
       # and set STEP to '3'
